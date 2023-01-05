@@ -1,0 +1,14 @@
+import cv2
+import requests
+import numpy as np
+
+url = "https://www.jma.go.jp/bosai/nowc/images/legend_jp_deep_hrpns.svg"
+response = requests.get(url)
+image = response.content
+
+with open("test.png","wb") as f:
+    f.write(image)
+
+img = cv2.imread("test.png")
+print(img.shape)
+cv2.imshow("test",img)
