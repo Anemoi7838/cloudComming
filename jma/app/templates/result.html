@@ -12,9 +12,8 @@
   </head>
   <!-- 文字の表示を真ん中に -->
   <body class="text-center">
-  <h2>もどるんだーー</h2>
-  <p>{{ lat }}</p>
-  <p>{{ lon }}</p>
+  <h2>結果</h2>
+  
   <table border="1">
     <tr>
       {% for time in times %}
@@ -86,8 +85,13 @@
       <td style="background-color:#663366">猛烈な降水</td>
     </tr>
   </table>
+  <details>
+    <summary class="gps">あなたの位置情報</summary>
+    <p>緯度：{{ lat }}</p>
+    <p>経度：{{ lon }}</p>
+  </details>
   <form action="/" method="get">
-    <input type="submit" value='back!'>
+    <button>もどる</button>
   </form>
     <p>気象庁<a href="https://www.jma.go.jp/bosai/nowc/#zoom:5/lat:34.234512/lon:136.713867/colordepth:deep/elements:amds_rain10m&hrpns">降水ナウキャスト</a>を加工して作成</p>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>

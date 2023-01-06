@@ -3,7 +3,7 @@
     width:600px;
   }
   img{
-    width: 50%;
+    width: 80%;
   }
   .container p{
     position: absolute;
@@ -38,5 +38,76 @@
   }
   td{
     text-align: center;
-    width:100px;
+    width:auto;
+  }
+  button{
+    text-align: center;
+    display: flex;
+    margin: 1em;
+    padding: 0.8em 3em;
+    background-color: #e3364a; /* 背景色 */
+    box-shadow: 0 5px 0 #ca1c30; /* 影の太さ・色 */
+    border-radius: 60px;
+    color: #fff;
+    cursor: pointer;
+    /*text-decoration: none; /* 文字の下線を消す */
+  }
+  button:disabled {
+    background: #ccc;
+    box-shadow: 0 5px 0 #ccc;
+  }
+  
+  details{
+    height: 10px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    transition: all .5s ease; 
+  }
+  summary{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    height: 40px;
+    padding-top: 5px;
+    padding-left: 30px;
+    color: #fff;
+    text-shadow: 1px 1px 1px black;
+    font-weight: bold;
+    transition: all .3s ease;
+    cursor: pointer;
+  }
+  .gps{
+    background: black;
+  }
+  .gps:hover{
+    background: gray;
+  }
+  summary::after{
+    content: '+';
+    position: absolute;
+    right: 20px;
+    height:20px;
+    width:20px;
+    transition: all .3s ease;
+  }
+  details[open] summary::after{
+    transform: rotate(45deg);
+  }
+  details[open] {
+    height: 150px;
+  }
+  details[open] .codeWrapper{
+    overflow: auto;
+    animation: ani 1s ;
+  }
+  @keyframes ani {
+    0%{
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100%{
+      opacity: 1;
+      transform: none;
+    }
   }

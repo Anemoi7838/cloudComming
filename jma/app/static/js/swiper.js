@@ -7,4 +7,5 @@ const swiper = new Swiper(".swiper",{
         prevEl: ".swiper-button-prev"
     },
     autoWidth: true,
+    loop: true,
 });

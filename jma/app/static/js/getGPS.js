@@ -1,9 +1,9 @@
 // Geolocation APIに対応している
 if (navigator.geolocation) {
-    document.getElementById("alert").innerHTML = "この端末は利用可能です。";
+    document.getElementById("alert").innerHTML = "この端末は利用可能です";
   } else {
-    document.getElementById("alert").innerHTML = "この端末では位置情報が取得できないため、利用できません。";
-    document.getElementById("go").disabled = false;
+    document.getElementById("alert").innerHTML = "この端末では位置情報が取得できないため、利用できません";
+    //document.getElementById("go").disabled = true;
   }
 
   // 現在地取得処理
@@ -21,6 +21,8 @@ if (navigator.geolocation) {
             console.log(position.coords.latitude);
       },
       function(error) {
+        const button = document.getElementById("go");
+        button.disabled = true;
         switch(error.code) {
           case 1: //PERMISSION_DENIED
             document.getElementById("alert").innerHTML = "位置情報が許可されていないため、利用できません。";

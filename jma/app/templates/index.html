@@ -6,7 +6,7 @@
     <meta charset="utf-8">
   <!-- どのデバイスで見ても見え方を一緒にする = レスポンシブデザイン -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <link rel="stylesheet" href="static/css/style.css">
   </head>
   <!-- 文字の表示を真ん中に -->
   <body onload="getPosition();"class="text-center">
@@ -38,10 +38,10 @@
   </table>
   <p>あくまで参考程度でご覧ください</p>
   <p id="alert"></p>
-  <form action="/result" method="post">
+  <form name="sendGPS" action="/result" method="post">
     <input type = "hidden" name="lon" id="lon">
     <input type = "hidden" name="lat" id="lat">
-    <input type = "submit" id = "go" value="go">
+    <button id="go" class="btn">はじめる</button>
   </form>
   <script type="text/javascript" src="static/js/getGPS.js"></script>
   </body>
