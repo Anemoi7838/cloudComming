@@ -2,7 +2,7 @@
 if (navigator.geolocation) {
     document.getElementById("alert").innerHTML = "この端末は利用可能です";
   } else {
-    document.getElementById("alert").innerHTML = "位置情報を有効にしてください";
+    document.getElementById("alert").innerHTML = "この端末では位置情報を取得できませんでした";
     //document.getElementById("go").disabled = true;
   }
 
@@ -25,13 +25,13 @@ if (navigator.geolocation) {
         button.disabled = true;
         switch(error.code) {
           case 1: //PERMISSION_DENIED
-            document.getElementById("alert").innerHTML = "位置情報が許可されていないため、利用できません。";
+            document.getElementById("alert").innerHTML = "位置情報を有効にしてください";
             break;
           case 2: //POSITION_UNAVAILABLE
-            document.getElementById("alert").innerHTML = "位置情報が取得できませんでした。";
+            document.getElementById("alert").innerHTML = "位置情報が取得できませんでした";
             break;
           case 3: //TIMEOUT
-            document.getElementById("alert").innerHTML = "タイムアウトになりました。";
+            document.getElementById("alert").innerHTML = "タイムアウトになりました";
             break;
           default:
             document.getElementById("alert").innerHTML = "その他のエラー(エラーコード:"+error.code+")";
