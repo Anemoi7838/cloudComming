@@ -13,15 +13,19 @@
   <!-- 文字の表示を真ん中に -->
   <body class="text-center">
   <h2>結果</h2>
-  
+  {% if text == 0%}
+    <h3>一時間以内に降水なし</h3>
+  {%else%}
+      <h3>一時間以内に降水あり</h3>
+  {%endif%}
   <table border="1">
     <tr>
-      {% for time in times %}
+      {% for time in times[:6] %}
         <th>{{ time }}</th>
       {% endfor %}
     </tr>
     <tr>
-      {% for judge  in judges %}
+      {% for judge  in judges[:6] %}
         <td style=
         "{% if judge == "非常に弱い降水" %}background-color:#CCFFFF;
         {%elif judge == "弱い降水"%}background-color:#99FFFF;
@@ -35,7 +39,28 @@
         {%endif%}">{{ judge }}</td>
       {% endfor %}
     </tr>
-
+  </table>
+  <table border="1">
+    <tr>
+      {% for time in times[6:] %}
+        <th>{{ time }}</th>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for judge  in judges[6:] %}
+        <td style=
+        "{% if judge == "非常に弱い降水" %}background-color:#CCFFFF;
+        {%elif judge == "弱い降水"%}background-color:#99FFFF;
+        {%elif judge == "降水"%}background-color:#99CCFF;
+        {%elif judge == "やや強い降水"%}background-color:#0099FF;
+        {%elif judge == "強い降水"%}background-color:#FFFF66;
+        {%elif judge == "激しい降水"%}background-color:#FF9872;
+        {%elif judge == "非常に激しい降水"%}background-color:#FF3300;
+        {%elif judge == "猛烈な降水"%}background-color:#663366;
+        {%else%}
+        {%endif%}">{{ judge }}</td>
+      {% endfor %}
+    </tr>
   </table>
   <div class="swiper">
     <!-- Additional required wrapper -->
@@ -63,7 +88,7 @@
   <p>赤いマルは位置情報から現在位置を表示しています。</p>
   <table border="1">
     <tr>
-      <td>降水強度</td>
+      <td>降水強度(mm/h)</td>
       <td>~1</td>
       <td>1~5</td>
       <td>5~10</td>

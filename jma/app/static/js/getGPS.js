@@ -2,7 +2,7 @@
 if (navigator.geolocation) {
     document.getElementById("alert").innerHTML = "この端末は利用可能です";
   } else {
-    document.getElementById("alert").innerHTML = "この端末では位置情報が取得できないため、利用できません";
+    document.getElementById("alert").innerHTML = "位置情報を有効にしてください";
     //document.getElementById("go").disabled = true;
   }
 

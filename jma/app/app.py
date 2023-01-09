@@ -23,13 +23,19 @@ def result():
         x,y=calc.xy(lon,lat,plon,plat)
         print(x,y)
         judgelist=judge.rain(x,y)
-
+        text=0
+        for jd in judgelist:
+            if jd == "降水なし":
+                continue
+            else:
+                text=1
+                break
         #conposite.gsi()
         #conposite.border()
         conposite.surf()
         time = get.date("display")
         conposite.cnpst(lon,lat,plon,plat,time)
-        return render_template("result.html",lon=lon,lat=lat,times=time,judges=judgelist)  
+        return render_template("result.html",lon=lon,lat=lat,times=time,judges=judgelist,text=text)  
 
 
 if __name__ == "__main__":
